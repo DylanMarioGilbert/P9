@@ -34,5 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     nextButton.addEventListener('click', showNextSlide);
     prevButton.addEventListener('click', showPrevSlide);
+  
+    setInterval(showNextSlide, 5000);
   });
   
