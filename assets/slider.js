@@ -1,4 +1,4 @@
-document.addEventListener(function () {
+document.addEventListener('DOMContentLoaded', function () {
     let carouselIndicators = document.querySelectorAll('.carousel-indicators button');
     let carouselItems = document.querySelectorAll('.carousel-item');
     let currentIndex = 0;
