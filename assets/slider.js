@@ -21,8 +21,14 @@ function showSlide(index) {
     }, 600);
 }
 
-prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
-nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
+prevButton.addEventListener('click', () => {
+    if (!isTransitioning) showSlide(currentIndex - 1);
+});
+nextButton.addEventListener('click', () => {
+    if (!isTransitioning) showSlide(currentIndex + 1);
+});
 indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => showSlide(index));
+    indicator.addEventListener('click', () => {
+        if (!isTransitioning) showSlide(index);
+    });
 });
