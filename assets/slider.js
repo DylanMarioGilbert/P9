@@ -4,8 +4,8 @@ const indicators = carousel.querySelectorAll('.carousel-indicators button');
 const prevButton = carousel.querySelector('.carousel-control-prev');
 const nextButton = carousel.querySelector('.carousel-control-next');
 let currentIndex = 0;
-let isTransitioning = false;
 let autoSlideInterval;
+let isTransitioning = false;
 
 function showSlide(index) {
     if (isTransitioning) return;
@@ -17,13 +17,15 @@ function showSlide(index) {
     items[currentIndex].classList.add('active');
     indicators[currentIndex].classList.add('active');
 
-    setTimeout(() => isTransitioning = false, 600);
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 600);
 }
 
 function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
         showSlide(currentIndex + 1);
-    }, 3000); 
+    }, 3000);
 }
 
 function resetAutoSlide() {
