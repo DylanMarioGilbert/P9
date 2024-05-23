@@ -16,19 +16,9 @@ function showSlide(index) {
     items[currentIndex].classList.add('active');
     indicators[currentIndex].classList.add('active');
 
-    setTimeout(() => {
-        isTransitioning = false;
-    }, 600);
+    setTimeout(() => isTransitioning = false, 600);
 }
 
-prevButton.addEventListener('click', () => {
-    if (!isTransitioning) showSlide(currentIndex - 1);
-});
-nextButton.addEventListener('click', () => {
-    if (!isTransitioning) showSlide(currentIndex + 1);
-});
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        if (!isTransitioning) showSlide(index);
-    });
-});
+prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
+nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
+indicators.forEach((indicator, index) => indicator.addEventListener('click', () => showSlide(index)));
