@@ -5,7 +5,7 @@
 	<title>Nina Carducci - Photographe</title>
 	<meta name="description" content="Nina Carducci, photographe à Bordeaux, capture la beauté unique de chaque moment. Contactez-la dès aujourd'hui pour des photos exceptionnelles.">
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
-	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/style.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
@@ -107,6 +107,13 @@
 </section>
 <section id="gallery">
 	<h3 class="title">Portfolio</h3>
+	<div class="filter-buttons">
+        <button class="tag-filter" data-tag="Concert">Concert</button>
+        <button class="tag-filter" data-tag="Entreprises">Entreprises</button>
+        <button class="tag-filter" data-tag="Mariages">Mariages</button>
+        <button class="tag-filter" data-tag="Portrait">Portrait</button>
+        <button class="tag-filter" data-tag="all">Tous</button>
+    </div>
 	<div class="container py-3">
 		<div class="gallery" style="display: none">
 			<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="concert"/>
