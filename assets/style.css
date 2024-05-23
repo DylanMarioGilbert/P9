@@ -55,7 +55,7 @@ body {
     cursor: pointer; 
 }
 
-.tag-filter:active {
+.tag-filter.active {
     background-color:black;
     color: white; 
 }
