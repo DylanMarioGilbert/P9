@@ -5,6 +5,7 @@ const prevButton = carousel.querySelector('.carousel-control-prev');
 const nextButton = carousel.querySelector('.carousel-control-next');
 let currentIndex = 0;
 let isTransitioning = false;
+let autoSlideInterval;
 
 function showSlide(index) {
     if (isTransitioning) return;
@@ -19,6 +20,32 @@ function showSlide(index) {
     setTimeout(() => isTransitioning = false, 600);
 }
 
-prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
-nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
-indicators.forEach((indicator, index) => indicator.addEventListener('click', () => showSlide(index)));
+function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, 3000); 
+}
+
+function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+}
+
+prevButton.addEventListener('click', () => {
+    showSlide(currentIndex - 1);
+    resetAutoSlide();
+});
+
+nextButton.addEventListener('click', () => {
+    showSlide(currentIndex + 1);
+    resetAutoSlide();
+});
+
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        showSlide(index);
+        resetAutoSlide();
+    });
+});
+
+startAutoSlide();
