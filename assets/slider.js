@@ -1,29 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let carouselIndicators = document.querySelectorAll('.carousel-indicators button');
-    let carouselItems = document.querySelectorAll('.carousel-item');
-    let currentIndex = 0;
+const carousel = document.querySelector('.carousel');
+const items = carousel.querySelectorAll('.carousel-item');
+const indicators = carousel.querySelectorAll('.carousel-indicators button');
+const prevButton = carousel.querySelector('.carousel-control-prev');
+const nextButton = carousel.querySelector('.carousel-control-next');
+let currentIndex = 0;
+let isTransitioning = false;
 
-    function updateCarousel(newIndex) {
-        carouselItems[currentIndex].classList.remove('active');
-        carouselIndicators[currentIndex].classList.remove('active');
-        currentIndex = newIndex;
-        carouselItems[currentIndex].classList.add('active');
-        carouselIndicators[currentIndex].classList.add('active');
-    }
+function showSlide(index) {
+    if (isTransitioning) return;
+    isTransitioning = true;
 
-    document.querySelector('.carousel-control-prev').addEventListener('click', function () {
-        let newIndex = (currentIndex === 0) ? carouselItems.length - 1 : currentIndex - 1;
-        updateCarousel(newIndex);
-    });
+    items[currentIndex].classList.remove('active');
+    indicators[currentIndex].classList.remove('active');
+    currentIndex = (index + items.length) % items.length;
+    items[currentIndex].classList.add('active');
+    indicators[currentIndex].classList.add('active');
 
-    document.querySelector('.carousel-control-next').addEventListener('click', function () {
-        let newIndex = (currentIndex === carouselItems.length - 1) ? 0 : currentIndex + 1;
-        updateCarousel(newIndex);
-    });
+    setTimeout(() => {
+        isTransitioning = false;
+    }, 600);
+}
 
-    carouselIndicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', function () {
-            updateCarousel(index);
-        });
-    });
+prevButton.addEventListener('click', () => showSlide(currentIndex - 1));
+nextButton.addEventListener('click', () => showSlide(currentIndex + 1));
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => showSlide(index));
 });
