@@ -1,20 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryItems = document.querySelectorAll(".gallery-item");
+    const filters = document.querySelectorAll(".tag-filter");
 
-    galleryItems.forEach(function(item) {
-        item.parentNode.style.display = "block";
-    });
+    function filterGallery(tag) {
+        galleryItems.forEach(function(item) {
+            if (tag === "all" || item.dataset.galleryTag === tag) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    }
 
-    document.querySelectorAll(".tag-filter").forEach(function(filter) {
+    filters.forEach(function(filter) {
         filter.addEventListener("click", function() {
             const tag = this.dataset.tag;
-            galleryItems.forEach(function(item) {
-                if (tag === "all" || item.dataset.galleryTag === tag) {
-                    item.parentNode.style.display = "block";
-                } else {
-                    item.parentNode.style.display = "none";
-                }
+
+            filters.forEach(function(f) {
+                f.classList.remove("active");
             });
+
+            this.classList.add("active");
+
+            filterGallery(tag);
         });
     });
-});
+
+    document.querySelector(".tag-filter[data-tag='all']").click();
