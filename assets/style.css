@@ -156,19 +156,50 @@ body {
 	padding: .5em;
 	width: 440px; 
 	height: 580px; 
-	
+}
+.modal {
+    width: auto;
+    height: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    overflow: hidden;
+}
+
+.modal-content {
+    width: 90%;
+    height: 70%;
+	margin:auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1000; 
+    background-color: white;
+    margin-top: -20px; 
+}
+
+.prev {
+    left: -15px; 
+}
+
+.next {
+    right: -15px; 
 }
 
 
-.mg-prev, .mg-next {
-	width: 30px;
-	height: 30px;
-	border-radius: 00%;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	font-size: 24px;
-}
 
 .quote {
 	font-family: 'Spectral';

@@ -1,9 +1,9 @@
 const carousel = document.querySelector('.carousel');
 const items = carousel.querySelectorAll('.carousel-item');
 const indicators = carousel.querySelectorAll('.carousel-indicators button');
-const prevButton = carousel.querySelector('.carousel-control-prev');
-const nextButton = carousel.querySelector('.carousel-control-next');
-let currentIndex = 0;
+const pastButton = carousel.querySelector('.carousel-control-prev');
+const newButton = carousel.querySelector('.carousel-control-next');
+let currentIndexslider = 0;
 let autoSlideInterval;
 let isTransitioning = false;
 
@@ -11,11 +11,11 @@ function showSlide(index) {
     if (isTransitioning) return;
     isTransitioning = true;
 
-    items[currentIndex].classList.remove('active');
-    indicators[currentIndex].classList.remove('active');
-    currentIndex = (index + items.length) % items.length;
-    items[currentIndex].classList.add('active');
-    indicators[currentIndex].classList.add('active');
+    items[currentIndexslider].classList.remove('active');
+    indicators[currentIndexslider].classList.remove('active');
+    currentIndexslider = (index + items.length) % items.length;
+    items[currentIndexslider].classList.add('active');
+    indicators[currentIndexslider].classList.add('active');
 
     setTimeout(() => {
         isTransitioning = false;
@@ -24,7 +24,7 @@ function showSlide(index) {
 
 function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
-        showSlide(currentIndex + 1);
+        showSlide(currentIndexslider + 1);
     }, 3000);
 }
 
@@ -33,13 +33,13 @@ function resetAutoSlide() {
     startAutoSlide();
 }
 
-prevButton.addEventListener('click', () => {
-    showSlide(currentIndex - 1);
+pastButton.addEventListener('click', () => {
+    showSlide(currentIndexslider - 1);
     resetAutoSlide();
 });
 
-nextButton.addEventListener('click', () => {
-    showSlide(currentIndex + 1);
+newButton.addEventListener('click', () => {
+    showSlide(currentIndexslider + 1);
     resetAutoSlide();
 });
 

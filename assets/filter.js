@@ -1,8 +1,8 @@
-const galleryItems = document.querySelectorAll(".gallery-item");
-    const filters = document.querySelectorAll(".tag-filter");
+const galleryItemsFilter = document.querySelectorAll(".gallery-item");
+const filters = document.querySelectorAll(".tag-filter");
 
     function filterGallery(tag) {
-        galleryItems.forEach(function(item) {
+        galleryItemsFilter.forEach(function(item) {
             if (tag === "all" || item.dataset.galleryTag === tag) {
                 item.style.display = "block";
             } else {
@@ -25,4 +25,5 @@ const galleryItems = document.querySelectorAll(".gallery-item");
         });
     });
 
-    document.querySelector(".tag-filter[data-tag='all']").click();
+document.querySelector(".tag-filter[data-tag='all']").click();
+
