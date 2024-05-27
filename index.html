@@ -11,6 +11,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<script src="./assets/bootstrap/bootstrap.bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="./assets/maugallery.min.js"></script>
+	<script src="./assets/scripts.min.js"></script>
 	<script type="application/ld+json">
 		{
 		  "@context": "https://schema.org",
@@ -66,9 +69,9 @@
 <main>
 <div id="header">
 
-	<div id="carouselExampleIndicators" class="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 			<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 		</div>
@@ -106,14 +109,8 @@
 </section>
 <section id="gallery">
 	<h3 class="title">Portfolio</h3>
-	<div class="filter-buttons">
-		<button class="tag-filter" data-tag="all">Tous</button>
-        <button class="tag-filter" data-tag="Concert">Concert</button>
-        <button class="tag-filter" data-tag="Entreprises">Entreprises</button>
-        <button class="tag-filter" data-tag="Mariages">Mariages</button>
-        <button class="tag-filter" data-tag="Portrait">Portrait</button>
-    </div>	
-		<div class="gallery-portfolio">
+	<div class="container py-3">
+		<div class="gallery" style="display: none">
 			<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="concert"/>
 			<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp" alt="homme costumé"/>
 			<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp" alt="femme souriante"/>
@@ -124,12 +121,7 @@
 			<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp" alt="concert du chanteur"/>
 			<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp" alt="femme sourirant au travail"/>
 		</div>
-		<div class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="modalImage">
-			<button class="prev" onclick="prevImage()">&#10094;</button>
-			<button class="next" onclick="nextImage()">&#10095;</button>
-        </div>
+		</div>
 </section>
 	<section class="quote">
 		<figure>
@@ -204,8 +196,5 @@
 	</div>
 </section>
 </main>
-<script src="./assets/modal.min.js"></script>
-<script src="./assets/filter.min.js"></script>
-<script src="./assets/slider.min.js"></script>
 </body>
 </html>
